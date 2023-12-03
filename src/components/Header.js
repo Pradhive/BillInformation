@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+
 import Logo from "../assests/Logo.jpeg"
 import { Image } from 'mui-image'
 import MainDetails from "./MainDetails";

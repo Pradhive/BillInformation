@@ -1,7 +1,5 @@
 import Header from "./components/Header";
-import MainDetails from "./components/MainDetails";
 import ClientDetails from "./components/ClientDetails";
-import Date from "./components/Date";
 import Notes from "./components/Notes";
 import { useState } from "react";
 import InputDetails from "./components/InputDetails";
