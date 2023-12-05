@@ -5,6 +5,7 @@ import { useState } from "react";
 import InputDetails from "./components/InputDetails";
 import ItemDetails from "./components/ItemDetails";
 import TableData from "./components/Table";
+import { useEffect } from "react";
 
 function App() {
   const [showInvoice, setShowInvoice] = useState(false);
@@ -18,6 +19,9 @@ function App() {
   const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
   const [show, setShow] = useState(true);
+  const [time, setTime] = useState("");
+
+  
 
   return (
     <>
@@ -33,6 +37,7 @@ function App() {
                 advance={advance}
                 number={number}
                 ship={ship}
+                time={time}
               />
               {/* <Date date={date} advance={advance} /> */}
             </div>
@@ -62,6 +67,8 @@ function App() {
               setShip={setShip}
               advance={advance}
               setAdvance={setAdvance}
+              time={time}
+              setTime={setTime}
             />
 
             <ItemDetails

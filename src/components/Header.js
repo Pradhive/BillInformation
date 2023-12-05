@@ -14,7 +14,7 @@ function Header({show, setShow}) {
   return (
     <>
       <header className="flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between">
-        <div className="text-sm">ஓம் நமசிவாய போற்றி</div>
+        <div className="text-sm" style={{ fontSize: "10px" }}>ஓம் நமசிவாய போற்றி</div>
         <div className="flex items-center justify-between w-full">
           <div>
             <Image src={Logo} width={120} height={120} />

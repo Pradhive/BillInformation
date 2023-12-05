@@ -1,9 +1,14 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import dayjs from "dayjs";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import moment from "moment";
 
-function InputDetails(
-  {name,
+function InputDetails({
+  name,
   setName,
   address,
   setAddress,
@@ -14,8 +19,10 @@ function InputDetails(
   ship,
   setShip,
   advance,
-  setAdvance}
-) {
+  setAdvance,
+  setTime,
+  time,
+}) {
   const today = dayjs();
   return (
     <div>
@@ -50,6 +57,19 @@ function InputDetails(
             onChange={(e) => setDate(e.target.value)}
           />
         </div>
+        <div>
+          <input
+            type="time"
+            name="text"
+            id="time"
+            className="w-64 p-3 border-2"
+            placeholder="Enter your Date"
+            value={time}
+            autoComplete="off"
+            onChange={(e) => setTime(e.target.value)}
+          />
+        </div>
+        
         <TextField
           id="advance"
           label="Advance"
@@ -68,7 +88,7 @@ function InputDetails(
           autoComplete="off"
           onChange={(e) => setAddress(e.target.value)}
         />
-        
+
         <TextField
           id="ship"
           label="Ship To"
