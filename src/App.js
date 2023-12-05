@@ -5,7 +5,6 @@ import { useState } from "react";
 import InputDetails from "./components/InputDetails";
 import ItemDetails from "./components/ItemDetails";
 import TableData from "./components/Table";
-import { useEffect } from "react";
 
 function App() {
   const [showInvoice, setShowInvoice] = useState(false);
