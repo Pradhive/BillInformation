@@ -8,7 +8,7 @@ function Header({show, setShow}) {
   const handlePrint = () => {
     setShow(false);
     setTimeout(()=>window.print(), 100);
-    setTimeout(()=>setShow(true), 100);
+    setTimeout(()=>setShow(true), 3000);
   };
 
   return (
