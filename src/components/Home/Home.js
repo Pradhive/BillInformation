@@ -76,7 +76,7 @@ export default function Home({
 
   useEffect(() => {
     fetchPost();
-  },[]);
+  },[]); //eslint-disable-line
 
   useEffect(() => {
     let temp = 0;
