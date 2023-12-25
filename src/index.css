@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f1f1ff;
@@ -11,3 +9,54 @@ body {
 code {
     font-family: 'Latha', sans-serif; 
 }
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.ani{
+  opacity: 0;
+  animation: slideFadeIn 2.5s ease-out forwards;
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.pro1{
+  opacity: 0;
+  animation: slideFadeIn1 5s ease-out forwards;
+}
+
+@keyframes slideFadeIn1 {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+}
+.pro2{
+  opacity: 0;
+  animation: slideFadeIn2 5s ease-out forwards;
+}
+
+@keyframes slideFadeIn2 {
+  0% {
+    opacity: 0;
+    transform: translateX(50px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+}
+

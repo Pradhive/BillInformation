@@ -22,14 +22,14 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
   const [amount, setAmount] = useState(0);
 
   const items = [
-    { label: "இட்லி", value: "இட்லி" },
-    { label: "பொங்கல்", value: "பொங்கல்" },
-    { label: "தோசை", value: "தோசை" },
-    { label: "சாப்பாடு", value: "சாப்பாடு" },
-    { label: "பிரியாணி ", value: "பிரியாணி " },
-    { label: "கேசரி", value: "கேசரி" },
-    { label: "வடை ", value: "வடை " },
-    { label: "புளி சாதம் ", value: "புளி சாதம் " },
+    { label: "Idly", value: "Idly" , price : 7.5},
+    { label: "பொங்கல்", value: "பொங்கல்", price : 40 },
+    { label: "தோசை", value: "தோசை", price : 20 },
+    { label: "சாப்பாடு", value: "சாப்பாடு", price : 85 },
+    { label: "பிரியாணி ", value: "பிரியாணி ", price : 80 },
+    { label: "கேசரி", value: "கேசரி", price : 20 },
+    { label: "வடை ", value: "வடை ", price : 5 },
+    { label: "புளி சாதம் ", value: "புளி சாதம் ", price : 40 },
   ];
 
   const handleSave = () => {
@@ -91,7 +91,15 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
             <TextField {...params} label="Description" />
           )}
           onInputChange={(event, newInputValue) => {
-            setDescription(newInputValue);
+            const selectedItem = items.find(
+              (item) => item.label === newInputValue
+            );
+            if (selectedItem) {
+              setDescription(selectedItem.label);
+              setPrice(selectedItem.price);
+            } else {
+              setDescription(newInputValue);
+            }
           }}
         />
         <div className="space-y-2 md:flex items-center justify-between mt-5">

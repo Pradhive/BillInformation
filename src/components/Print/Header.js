@@ -1,20 +1,53 @@
-
-import Logo from "../assests/Logo.jpeg"
-import { Image } from 'mui-image'
+import Logo from "../../assests/Logo.jpeg";
+import { Image } from "mui-image";
 import MainDetails from "./MainDetails";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../Firebase/firebase";
 
-function Header({show, setShow}) {
-
-  const handlePrint = () => {
+function Header({
+  show,
+  setShow,
+  name,
+  address,
+  date,
+  advance,
+  number,
+  ship,
+  time,
+  total,
+  list,
+  billNo
+}) {
+  const handlePrint = async () => {
     setShow(false);
-    setTimeout(()=>window.print(), 100);
-    setTimeout(()=>setShow(true), 3000);
+    setTimeout(() => window.print(), 100);
+    setTimeout(() => setShow(true), 3000);
+    
+    try {
+      const docRef = await addDoc(collection(db, "billData"), {
+        name : name,
+      address : address,
+      date : date,
+      advance : advance,
+      number : number,
+      ship : ship,
+      time : time,
+      total : total,
+      list : list,
+      billNo : billNo
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
   return (
     <>
       <header className="flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between">
-        <div className="text-sm" style={{ fontSize: "10px" }}>ஓம் நமசிவாய போற்றி</div>
+        <div className="text-sm" style={{ fontSize: "10px" }}>
+          ஓம் நமசிவாய போற்றி
+        </div>
         <div className="flex items-center justify-between w-full">
           <div>
             <Image src={Logo} width={120} height={120} />
@@ -25,7 +58,6 @@ function Header({show, setShow}) {
             </h2>
             <MainDetails />
           </div>
-          
         </div>
 
         {show && (
