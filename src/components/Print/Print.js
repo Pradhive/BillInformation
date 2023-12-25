@@ -21,7 +21,7 @@ export default function Print({
   }) {
     const navigation = useNavigate();
   return (
-    <div>
+      <div className="p-5 m-5 xl:max-w-4xl xl:mx-auto bg-white rounded shadow-lg">
             <Header
               show={show}
               setShow={setShow}
