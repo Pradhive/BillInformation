@@ -100,7 +100,7 @@ export default function Home({
         <div className="md:hidden mt-10 md:mt-0">
           <Space wrap>
             <div className="flex flex-col justify-center items-center space-y-8">
-              <div className="pro1 flex items-center space-x-8">
+              <div className=" flex items-center space-x-8">
                 <Progress
                   type="circle"
                   trailColor="white"
@@ -115,7 +115,7 @@ export default function Home({
                 />
                 <div className="text-white pt-5">Total Orders This Month</div>
               </div>
-              <div className="pro2 flex items-center space-x-8">
+              <div className="flex items-center space-x-8">
                 <Progress
                   type="circle"
                   trailColor="white"
