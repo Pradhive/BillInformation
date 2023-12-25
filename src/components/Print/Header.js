@@ -66,7 +66,7 @@ function Header({
             <ul className="flex items-center justify-between flex-wrap">
               <li className="btn btn-print">
                 <button
-                  className="bg-gray-500 mt-5 text-white font-bold  py-1 px-2 rounded shadow-xl border-2 border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all duration-300"
+                  className="bg-gray-500 mt-5 text-white font-bold  py-1 px-2 rounded shadow-xl  border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all duration-300"
                   onClick={handlePrint}
                 >
                   <PrintOutlinedIcon />
