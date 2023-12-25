@@ -20,14 +20,15 @@ function InputDetails({
 }) {
   const today = dayjs();
   return (
-    <div>
-      <div className="grid md:grid-cols-3 gap-4">
+    <div className="p-4 bg-[#4f4e4e] rounded-xl mt-2">
+      <div className="grid md:grid-cols-4 gap-4">
         <TextField
           id="name"
           label="Name"
           variant="outlined"
           value={name}
           autoComplete="off"
+          className="bg-white"
           onChange={(e) => setName(e.target.value)}
         />
         <TextField
@@ -36,6 +37,7 @@ function InputDetails({
           variant="outlined"
           value={number}
           autoComplete="off"
+          className="bg-white"
           onChange={(e) => setNumber(e.target.value)}
         />
 
@@ -71,6 +73,7 @@ function InputDetails({
           variant="outlined"
           value={advance}
           autoComplete="off"
+          className="bg-white"
           onChange={(e) => setAdvance(e.target.value)}
         />
 
@@ -81,6 +84,7 @@ function InputDetails({
           fullWidth
           value={address}
           autoComplete="off"
+          className="bg-white"
           onChange={(e) => setAddress(e.target.value)}
         />
 
@@ -91,6 +95,7 @@ function InputDetails({
           fullWidth
           value={ship}
           autoComplete="off"
+          className="bg-white"
           onChange={(e) => setShip(e.target.value)}
         />
       </div>

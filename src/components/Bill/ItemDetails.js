@@ -3,7 +3,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { v4 as uuidv4 } from "uuid";
 import Autocomplete from "@mui/material/Autocomplete";
 import { TextField } from "@mui/material";
-import DownloadDoneIcon from "@mui/icons-material/DownloadDone";
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,8 +12,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
 import collect from "collect.js";
+import SendAndArchiveOutlinedIcon from '@mui/icons-material/SendAndArchiveOutlined';
 
 function ItemDetails({ list, setList, advance, total, setTotal }) {
   const [description, setDescription] = useState("");
@@ -108,7 +108,8 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
   });
 
   return (
-    <div>
+    <div className="p-4 bg-[#4f4e4e] rounded-xl mt-2">
+      <div className="text-[18px] font-bold text-white ">Items</div>
       <div className="mt-5">
         <Autocomplete
           disablePortal
@@ -116,6 +117,7 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
           value={description}
           options={items}
           fullWidth
+          className="bg-white"
           sx={{ width: 300 }}
           renderInput={(params) => (
             <TextField {...params} label="Description" />
@@ -134,42 +136,45 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
         />
         <div className="space-y-2 md:flex items-center justify-between mt-5">
           <TextField
+            id="quantity"
+            label="Quantity"
+            variant="outlined"
+            value={quantity}
+            className="bg-white"
+            autoComplete="off"
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+          <TextField
             id="price"
             label="Price"
             variant="outlined"
+            className="bg-white"
             value={price}
             autoComplete="off"
             onChange={(e) => setPrice(e.target.value)}
           />
           <TextField
-            id="quantity"
-            label="Quantity"
-            variant="outlined"
-            value={quantity}
-            autoComplete="off"
-            onChange={(e) => setQuantity(e.target.value)}
-          />
-          <TextField
             id="amount"
             label="Amount"
             variant="outlined"
+            className="bg-white"
             value={amount}
             autoComplete="off"
           />
         </div>
-        <div className="w-full text-right">
+        <div className="w-full mt-4 text-right">
           <button
-            className=" mt-5 bg-green-500  text-white font-bold  py-2 px-8 rounded shadow-xl border-2 border-green-500 hover:bg-transparent hover:text-green-500 transition-all duration-300"
+            className=" text-white text-[14px]  text-lg hover:tracking-widest font-bold rounded py-2 px-4 hover:bg-white hover:text-black transition-all duration-700"
             onClick={handleSave}
           >
-            <DownloadDoneIcon />
+            <SendAndArchiveOutlinedIcon />
             Save
           </button>
         </div>
       </div>
 
       <button
-        className=" mt-5 bg-yellow-500  text-white font-bold  py-2 px-8 rounded shadow-xl border-2 border-yellow-500 hover:bg-transparent hover:text-yellow-500 transition-all duration-300"
+        className="text-white text-[14px] text-lg hover:tracking-widest font-bold rounded py-2 px-4 hover:bg-white hover:text-black transition-all duration-700"
         onClick={handleClick}
       >
         <AddShoppingCartIcon />
@@ -200,15 +205,15 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
                       <TableCell align="right">{row?.amount}</TableCell>
                       <TableCell align="right">
                         <span
-                          className="text-red-600"
+                          className="text-red-600 hover:bg-gray-200 rounded-full p-2 cursor-pointer"
                           onClick={() => deleteRow(row?.id)}
                         >
-                          <DeleteIcon />
+                          <DeleteOutlineOutlinedIcon />
                         </span>
                       </TableCell>
                       <TableCell align="right">
                         <span
-                          className="text-gray-400"
+                          className="text-gray-400 hover:bg-gray-200 rounded-full p-2 cursor-pointer"
                           onClick={() => editRow(row?.id)}
                         >
                           <EditIcon />
@@ -220,14 +225,14 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
               </Table>
             </TableContainer>
           </div>
-          <div className="flex flex-col items-end mt-4">
-            <div className="flex justify-between w-1/4 text-lg mr-10">
+          <div className="flex flex-col text-white mt-10 items-end mt-4">
+            <div className="flex justify-between w-1/2 md:w-1/4 p-2 text-lg mr-10">
               <div className="font-bold">SubTotal </div>  <div>{total}</div>
             </div>
-            <div className="flex justify-between w-1/4 text-lg mr-10">
+            <div className="flex justify-between w-1/2 md:w-1/4 p-2 text-lg mr-10">
               <div className="font-bold">Advance </div>  <div>{advance}</div>
             </div>
-            <div className="flex justify-between w-1/4 text-lg mr-10">
+            <div className="flex justify-between border w-1/2 p-2 md:w-1/4 text-lg mr-10">
               <div className="font-bold">Total </div> 
               <div>{total - advance}</div>
             </div>

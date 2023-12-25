@@ -36,14 +36,14 @@ function TableData({list, advance, total}) {
             </Table>
           </TableContainer>
           <div className="flex flex-col border-b-2 pb-2 text-sm md:text-lg  items-end mt-4">
-            <div className="flex justify-between md:p-2 w-1/4 text-lg">
-              <div className="font-bold">Total </div>  <div>{total}</div>
+            <div className="flex justify-between w-1/4">
+              <div className="font-bold text-[16px]">Total </div>  <div>{total}</div>
             </div>
-            <div className="flex justify-between md:p-2 w-1/4 text-lg">
-              <div className="font-bold">Advance </div>  <div>{advance}</div>
+            <div className="flex justify-between w-1/4">
+              <div className="font-bold text-[16px]">Advance </div>  <div>{advance}</div>
             </div>
-            <div className="flex bg-gray-400  md:p-2 justify-between w-1/4 text-lg ">
-              <div className="font-bold">Balance </div> 
+            <div className="flex bg-gray-400  justify-between w-1/4 ">
+              <div className="font-bold text-[16px]">Balance </div> 
               <div>{total - advance}</div>
             </div>
           </div>

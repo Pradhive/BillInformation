@@ -21,6 +21,9 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import TextField from "@mui/material/TextField";
 import moment from "moment";
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
+import Logo from "../../assests/Logo.jpeg"
 
 export default function Listing({
   setName,
@@ -91,18 +94,24 @@ export default function Listing({
   };
 
   return (
-    <div>
-      <button
-        className="bg-gray-500 mt-5 text-white font-bold  py-2 px-8 rounded shadow-xl border-2 border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all duration-300"
-        onClick={() => navigation("/")}
-      >
-        Home
-      </button>
-      <div>
+    <div className="bg-[#1e1e1e] h-fit p-2 py-8 ani">
+      <div className="flex items-center justify-between">
+        <button
+          className="text-white text-lg hover:tracking-widest font-bold rounded py-2 px-4 hover:bg-white hover:text-black transition-all duration-700"
+          onClick={() => navigation("/")}
+        >
+          <ArrowBackIosOutlinedIcon />
+          <HomeOutlinedIcon />
+        </button>
+        <div className="text-[20px] md:text-[30px] font-bold  flex items-center justify-center text-white ani">History</div>
+        <img src={Logo} alt="" className="h-[8vh] w-[8vw] pr-10"/>
+      </div>
+      <div className="p-2 flex pt-6 space-x-4">
         <TextField
           id="date"
           type="date"
           value={filterDate}
+          className="bg-white"
           onChange={(e) => setFilterDate(e.target.value)}
           InputLabelProps={{
             shrink: true,
@@ -110,15 +119,16 @@ export default function Listing({
         />
         <TextField
           id="date"
-          label="Name"
           value={filterName}
+          placeholder="Name"
+          className="bg-white"
           onChange={(e) => setFilterName(e.target.value)}
           InputLabelProps={{
             shrink: true,
           }}
         />
       </div>
-      <div>
+      <div className="p-2">
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 500 }} aria-label="a dense table">
             <TableHead>
@@ -148,13 +158,13 @@ export default function Listing({
                   <TableCell align="right">
                     <div className="flex justify-around">
                       <div
-                        className="text-blue-500 hover:bg-gray-300 rounded-full p-1 cursor-pointer"
+                        className="text-gray-500 hover:bg-gray-300 rounded-full p-1 cursor-pointer"
                         onClick={() => handleClick(row)}
                       >
                         <VisibilityIcon />
                       </div>
                       <div
-                        className="text-red-500 hover:bg-gray-300 rounded-full p-1 cursor-pointer"
+                        className="text-gray-500 hover:bg-gray-300 rounded-full p-1 cursor-pointer"
                         onClick={() => deletePost(row?.id)}
                       >
                         <DeleteOutlineOutlinedIcon />

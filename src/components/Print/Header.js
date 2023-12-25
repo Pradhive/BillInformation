@@ -3,6 +3,7 @@ import { Image } from "mui-image";
 import MainDetails from "./MainDetails";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
+import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined';
 
 function Header({
   show,
@@ -65,10 +66,10 @@ function Header({
             <ul className="flex items-center justify-between flex-wrap">
               <li className="btn btn-print">
                 <button
-                  className="bg-indigo-500 mt-5 text-white font-bold  py-2 px-8 rounded shadow-xl border-2 border-indigo-500 hover:bg-transparent hover:text-indigo-500 transition-all duration-300"
+                  className="bg-gray-500 mt-5 text-white font-bold  py-1 px-2 rounded shadow-xl border-2 border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all duration-300"
                   onClick={handlePrint}
                 >
-                  Print
+                  <PrintOutlinedIcon />
                 </button>
               </li>
             </ul>

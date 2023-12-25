@@ -6,6 +6,7 @@ import { db } from "../Firebase/firebase";
 import { useState } from "react";
 import { useEffect } from "react";
 import moment from "moment";
+import Logo from "../../assests/Logo.jpeg"
 
 export default function Home({
   setName,
@@ -91,7 +92,7 @@ export default function Home({
       <div className="">
         <div>
           <div className="text-[30px] md:text-[100px] font-bold md:w-screen flex items-center justify-center text-white ani">
-            Ashok Mess
+            <img src={Logo} alt="" className="h-[12vh] w-[10vw] pr-10"/>Ashok Mess
           </div>
           <div className="text-[30px] md:text-[50px] font-bold md:w-screen flex items-center justify-center text-white ani">
             Uppiliyapuram
