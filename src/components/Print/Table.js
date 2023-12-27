@@ -19,11 +19,10 @@ function TableData({ list, advance, total }) {
     const numToWordsHelper = (num) => {
       if (num < 10) return units[num];
       if (num < 20) return teens[num - 10];
-      if (num < 100) return tens[Math.floor(num / 10)] + " " + units[num % 10];
-      if (num < 1000) return units[Math.floor(num / 100)] + " Hundred " + numToWordsHelper(num % 100);
-      if (num < 10000) return units[Math.floor(num / 1000)] + " Thousand " + numToWordsHelper(num % 1000);
-      if (num < 20000) return teens[Math.floor(num / 1000)] + " Thousand " + numToWordsHelper(num % 1000);
-      if (num < 30000) return tens[Math.floor(num / 10000)] + " Thousand " + numToWordsHelper(num % 10000);
+      if (num < 100) return tens[Math.floor(num / 10)] + (num % 10 !== 0 ? " " + units[num % 10] : "");
+      if (num < 1000) return units[Math.floor(num / 100)] + " Hundred" + (num % 100 !== 0 ? " " + numToWordsHelper(num % 100) : "");
+      if (num < 10000) return units[Math.floor(num / 1000)] + " Thousand" + (num % 1000 !== 0 ? " " + numToWordsHelper(num % 1000) : "");
+      if (num < 1000000) return numToWordsHelper(Math.floor(num / 1000)) + " Thousand" + (num % 1000 !== 0 ? " " + numToWordsHelper(num % 1000) : "");
       return "Number is too large";
     };
   
