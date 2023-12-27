@@ -53,6 +53,7 @@ function Header({
           <div>
             <Image src={Logo} width={120} height={120} />
           </div>
+          
           <div>
             <h2 className="font-bold uppercase tracking-wide text-2xl mb-3">
               அசோக் மெஸ்

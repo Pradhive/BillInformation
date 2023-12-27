@@ -54,6 +54,7 @@ export default function Print({
       <TableData list={list} advance={advance} total={total} />
       <Notes />
       {/* <Footer /> */}
+      <div className="text-center text-sm">🏵️🏵️🏵️🏵️மீண்டும் ஆதரவு தருக நன்றி !!! 🏵️🏵️🏵️🏵️🏵️</div>
       {show && (
         <button
           className="bg-gray-500 mt-5 text-white font-bold  py-1 px-2 rounded   border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all duration-300"
