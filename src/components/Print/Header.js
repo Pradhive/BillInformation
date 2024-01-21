@@ -3,7 +3,10 @@ import { Image } from "mui-image";
 import MainDetails from "./MainDetails";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
-import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined';
+import PrintOutlinedIcon from "@mui/icons-material/PrintOutlined";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 function Header({
   show,
@@ -17,29 +20,31 @@ function Header({
   time,
   total,
   list,
-  billNo
+  billNo,
 }) {
-  const handlePrint = async () => {
+  const handlePrint = () => {
     setShow(false);
     setTimeout(() => window.print(), 100);
     setTimeout(() => setShow(true), 3000);
-    
+  };
+
+  const handleSave = async () => {
     try {
       const docRef = await addDoc(collection(db, "billData"), {
-        name : name,
-      address : address,
-      date : date,
-      advance : advance,
-      number : number,
-      ship : ship,
-      time : time,
-      total : total,
-      list : list,
-      billNo : billNo
+        name: name,
+        address: address,
+        date: date,
+        advance: advance,
+        number: number,
+        ship: ship,
+        time: time,
+        total: total,
+        list: list,
+        billNo: billNo,
       });
-      console.log("Document written with ID: ", docRef.id);
+      alert(`Successfully created`);
     } catch (e) {
-      console.error("Error adding document: ", e);
+      alert(`Error adding document: ${e.message}`);
     }
   };
 
@@ -53,7 +58,7 @@ function Header({
           <div>
             <Image src={Logo} width={120} height={120} />
           </div>
-          
+
           <div>
             <h2 className="font-bold uppercase tracking-wide text-2xl mb-3">
               அசோக் மெஸ்
@@ -71,6 +76,14 @@ function Header({
                   onClick={handlePrint}
                 >
                   <PrintOutlinedIcon />
+                </button>
+              </li>
+              <li className="btn btn-print">
+                <button
+                  className="bg-green-500 mt-5 text-white font-bold  py-1 px-2 rounded   border-green-500 hover:bg-transparent hover:text-green-500 transition-all duration-300"
+                  onClick={handleSave}
+                >
+                  <SaveAltIcon />
                 </button>
               </li>
             </ul>

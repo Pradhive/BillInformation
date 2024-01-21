@@ -60,3 +60,10 @@ code {
   }
 }
 
+.divis {
+  border-radius: 50px;
+  background: rgba(46, 66, 77, 0.1);
+  box-shadow: -33.533px 33.533px 33.533px 0px rgba(255, 255, 255, 0.1) inset,
+    33.533px -33.533px 33.533px 0px rgba(35, 50, 59, 0.1) inset;
+  backdrop-filter: blur(47.28200149536133px);
+}
