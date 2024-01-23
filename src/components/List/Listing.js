@@ -5,6 +5,7 @@ import {
   deleteDoc,
   where,
   query,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 import { useState } from "react";
@@ -44,17 +45,20 @@ export default function Listing({
   const fetchPost = async () => {
     let baseQuery = collection(db, "billData");
     let finalQuery = baseQuery;
-
+  
+    // Order by "billNo" in descending order
+    finalQuery = query(baseQuery, orderBy("billNo", "desc"));
+  
     if (filterDate) {
       const dateTimestamp = moment(filterDate).format("YYYY-MM-DD");
       console.log(dateTimestamp);
-      finalQuery = query(baseQuery, where("date", "==", dateTimestamp));
+      finalQuery = query(finalQuery, where("date", "==", dateTimestamp));
     }
     if (filterName) {
       console.log(filterName);
-      finalQuery = query(baseQuery, where("name", "==", filterName));
+      finalQuery = query(finalQuery, where("name", "==", filterName));
     }
-
+  
     await getDocs(finalQuery).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
