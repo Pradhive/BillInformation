@@ -17,6 +17,8 @@ function InputDetails({
   setAdvance,
   setTime,
   time,
+  discount,
+  setDiscount,
 }) {
   const today = dayjs();
   return (
@@ -75,6 +77,16 @@ function InputDetails({
           autoComplete="off"
           className="bg-white"
           onChange={(e) => setAdvance(e.target.value)}
+        />
+
+        <TextField
+          id="discount"
+          label="Discount"
+          variant="outlined"
+          value={discount}
+          autoComplete="off"
+          className="bg-white"
+          onChange={(e) => setDiscount(e.target.value)}
         />
 
         <TextField

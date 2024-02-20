@@ -35,7 +35,8 @@ export default function Listing({
   setAdvance,
   setTime,
   setList,
-  setBillNo
+  setBillNo,
+  setDiscount
 }) {
   const [data, setData] = useState([]);
 
@@ -93,7 +94,8 @@ export default function Listing({
     setAdvance(data?.advance);
     setTime(data?.time);
     setList(data?.list);
-    setBillNo(data?.billNo)
+    setBillNo(data?.billNo);
+    setDiscount(data?.discount)
     navigation("/bill");
   };
 

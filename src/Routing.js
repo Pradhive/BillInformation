@@ -16,6 +16,7 @@ export default function Routing() {
   const [date, setDate] = useState("");
   const [ship, setShip] = useState("");
   const [advance, setAdvance] = useState("");
+  const [discount, setDiscount] = useState(0);
   const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
   const [show, setShow] = useState(true);
@@ -85,6 +86,8 @@ export default function Routing() {
                     setList={setList}
                     total={total}
                     setTotal={setTotal}
+                    discount={discount}
+                    setDiscount = {setDiscount}
                   />
                 }
               />
@@ -104,6 +107,8 @@ export default function Routing() {
                     show={show}
                     setShow={setShow}
                     billNo={billNo}
+                    discount={discount}
+                    setDiscount = {setDiscount}
                   />
                 }
               />
@@ -121,6 +126,7 @@ export default function Routing() {
                   setTime={setTime}
                   setList={setList}
                   setBillNo={setBillNo}
+                  setDiscount = {setDiscount}
                 />
               }
             />

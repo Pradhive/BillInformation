@@ -21,6 +21,7 @@ function Header({
   total,
   list,
   billNo,
+  discount
 }) {
   const handlePrint = () => {
     setShow(false);
@@ -41,6 +42,7 @@ function Header({
         total: total,
         list: list,
         billNo: billNo,
+        discount : discount
       });
       alert(`Successfully created`);
     } catch (e) {

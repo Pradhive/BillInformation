@@ -19,6 +19,7 @@ export default function Print({
   show,
   setShow,
   billNo,
+  discount,
 }) {
   const navigation = useNavigate();
   return (
@@ -36,6 +37,7 @@ export default function Print({
         total={total}
         list={list}
         billNo={billNo}
+        discount={discount}
       />
       <div className="flex flex-between w-full">
         <ClientDetails
@@ -51,7 +53,7 @@ export default function Print({
         {/* <Date date={date} advance={advance} /> */}
       </div>
 
-      <TableData list={list} advance={advance} total={total} />
+      <TableData list={list} advance={advance} total={total} discount={discount}/>
       <Notes />
       {/* <Footer /> */}
       <div className="text-center text-sm">🏵️🏵️🏵️🏵️மீண்டும் ஆதரவு தருக நன்றி !!! 🏵️🏵️🏵️🏵️🏵️</div>

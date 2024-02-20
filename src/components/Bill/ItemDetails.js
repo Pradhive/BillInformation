@@ -13,53 +13,61 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import EditIcon from "@mui/icons-material/Edit";
 import collect from "collect.js";
-import SendAndArchiveOutlinedIcon from '@mui/icons-material/SendAndArchiveOutlined';
+import SendAndArchiveOutlinedIcon from "@mui/icons-material/SendAndArchiveOutlined";
 
-function ItemDetails({ list, setList, advance, total, setTotal }) {
+function ItemDetails({
+  list,
+  setList,
+  advance,
+  total,
+  setTotal,
+  discount,
+  setDiscount,
+}) {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
   const [amount, setAmount] = useState(0);
 
   const items = [
-    { label: "இட்லி", value: "இட்லி" , price : 7.5},
-    { label: "ஆட்டோ வாடகை", value: "ஆட்டோ வாடகை", price : 100 },
-    { label: "பொங்கல்", value: "பொங்கல்", price : 35 },
-    { label: "தோசை", value: "தோசை", price : 25 },
-    { label: "வெஜ் பிரியாணி", value: "வெஜ் பிரியாணி", price : 60 },
-    { label: "காளான் பிரியாணி", value: "காளான் பிரியாணி", price : 70 },
-    { label: "சாப்பாடு", value: "சாப்பாடு", price : 85 },
-    { label: "கேசரி", value: "கேசரி", price : 15 },
-    { label: "ஊத்தாப்பம்", value: "ஊத்தாப்பம்", price : 35 },
-    { label: "இடியாப்பம்", value: "இடியாப்பம்", price : 20 },
-    { label: "பூரி (set)", value: "பூரி", price : 30 },
-    { label: "சப்பாத்தி (set)", value: "சப்பாத்தி", price : 30 },
-    { label: "புரோட்டா", value: "புரோட்டா", price : 15 },
-    { label: "சர்க்கரை பொங்கல்(kg) ", value: "சர்க்கரை பொங்கல் ", price : 450 },
-    { label: "புளி சாதம் (kg)", value: "புளி சாதம் ", price : 300 },
-    { label: "தக்காளி சாதம்(kg)", value: "தக்காளி சாதம்", price : 300 },
-    { label: "தயிர் சாதம்(kg)", value: "தயிர் சாதம்", price : 300 },
-    { label: "லெமன் சாதம்(kg)", value: "லெமன் சாதம்", price : 300 },
-    { label: "தேங்காய் சாதம்(kg)", value: "தேங்காய் சாதம்", price : 300 },
-    { label: "மல்லி சாதம்(kg)", value: "மல்லி சாதம்", price : 300 },
-    { label: "வளைகாப்பு சாப்பாடு ", value: "வளைகாப்பு சாப்பாடு ", price : 150 },
-    { label: "குஸ்கா (kg)", value: "குஸ்கா", price : 350 },
-    { label: "சிக்கன் பிரியாணி", value: "சிக்கன் பிரியாணி", price : 100 },
-    { label: "சிக்கன் கிரேவி(kg)", value: "சிக்கன் கிரேவி", price : 120 },
-    { label: "மட்டன் கிரேவி(kg)", value: "மட்டன் கிரேவி", price : 150 },
-    { label: "பிரியாணி(kg)", value: "பிரியாணி", price : 600 },
-    { label: "அப்பளம்", value: "அப்பளம்", price : 3 },
-    { label: "காய் கூட்டு ", value: "காய் கூட்டு ", price : 12 },
-    { label: "கோதுமை கிச்சடி ", value: "கோதுமை கிச்சடி ", price : 35 },
-    { label: "சுண்டல் (kg) ", value: "சுண்டல்  ", price : 250 },
-    { label: "தண்ணீர் கேன் ", value: "தண்ணீர் கேன் ", price : 40 },
-    { label: "பாயாசம் ", value: "பாயாசம் ", price : 10 },
-    { label: "ரவா தோசை ", value: "ரவா தோசை ", price : 35 },
-    { label: "முட்டை ", value: "முட்டை ", price : 10 },
-    { label: "சாம்பார் ", value: "சாம்பார் ", price : 100 },
-    { label: "வடை ", value: "வடை ", price : 5 },
-    { label: "கலக்கி  ", value: "கலக்கி  ", price : 20 },
-    { label: "ஆம்லெட்  ", value: "ஆம்லெட்  ", price : 15 },
+    { label: "இட்லி", value: "இட்லி", price: 7.5 },
+    { label: "ஆட்டோ வாடகை", value: "ஆட்டோ வாடகை", price: 100 },
+    { label: "பொங்கல்", value: "பொங்கல்", price: 35 },
+    { label: "தோசை", value: "தோசை", price: 25 },
+    { label: "வெஜ் பிரியாணி", value: "வெஜ் பிரியாணி", price: 60 },
+    { label: "காளான் பிரியாணி", value: "காளான் பிரியாணி", price: 70 },
+    { label: "சாப்பாடு", value: "சாப்பாடு", price: 85 },
+    { label: "கேசரி", value: "கேசரி", price: 15 },
+    { label: "ஊத்தாப்பம்", value: "ஊத்தாப்பம்", price: 35 },
+    { label: "இடியாப்பம்", value: "இடியாப்பம்", price: 20 },
+    { label: "பூரி (set)", value: "பூரி", price: 30 },
+    { label: "சப்பாத்தி (set)", value: "சப்பாத்தி", price: 30 },
+    { label: "புரோட்டா", value: "புரோட்டா", price: 15 },
+    { label: "சர்க்கரை பொங்கல்(kg) ", value: "சர்க்கரை பொங்கல் ", price: 450 },
+    { label: "புளி சாதம் (kg)", value: "புளி சாதம் ", price: 300 },
+    { label: "தக்காளி சாதம்(kg)", value: "தக்காளி சாதம்", price: 300 },
+    { label: "தயிர் சாதம்(kg)", value: "தயிர் சாதம்", price: 300 },
+    { label: "லெமன் சாதம்(kg)", value: "லெமன் சாதம்", price: 300 },
+    { label: "தேங்காய் சாதம்(kg)", value: "தேங்காய் சாதம்", price: 300 },
+    { label: "மல்லி சாதம்(kg)", value: "மல்லி சாதம்", price: 300 },
+    { label: "வளைகாப்பு சாப்பாடு ", value: "வளைகாப்பு சாப்பாடு ", price: 150 },
+    { label: "குஸ்கா (kg)", value: "குஸ்கா", price: 350 },
+    { label: "சிக்கன் பிரியாணி", value: "சிக்கன் பிரியாணி", price: 100 },
+    { label: "சிக்கன் கிரேவி(kg)", value: "சிக்கன் கிரேவி", price: 120 },
+    { label: "மட்டன் கிரேவி(kg)", value: "மட்டன் கிரேவி", price: 150 },
+    { label: "பிரியாணி(kg)", value: "பிரியாணி", price: 600 },
+    { label: "அப்பளம்", value: "அப்பளம்", price: 3 },
+    { label: "காய் கூட்டு ", value: "காய் கூட்டு ", price: 12 },
+    { label: "கோதுமை கிச்சடி ", value: "கோதுமை கிச்சடி ", price: 35 },
+    { label: "சுண்டல் (kg) ", value: "சுண்டல்  ", price: 250 },
+    { label: "தண்ணீர் கேன் ", value: "தண்ணீர் கேன் ", price: 40 },
+    { label: "பாயாசம் ", value: "பாயாசம் ", price: 10 },
+    { label: "ரவா தோசை ", value: "ரவா தோசை ", price: 35 },
+    { label: "முட்டை ", value: "முட்டை ", price: 10 },
+    { label: "சாம்பார் ", value: "சாம்பார் ", price: 100 },
+    { label: "வடை ", value: "வடை ", price: 5 },
+    { label: "கலக்கி  ", value: "கலக்கி  ", price: 20 },
+    { label: "ஆம்லெட்  ", value: "ஆம்லெட்  ", price: 15 },
   ];
 
   const handleSave = () => {
@@ -227,14 +235,23 @@ function ItemDetails({ list, setList, advance, total, setTotal }) {
           </div>
           <div className="flex flex-col text-white mt-10 items-end mt-4">
             <div className="flex justify-between w-1/2 md:w-1/4 p-2 text-lg mr-10">
-              <div className="font-bold">SubTotal </div>  <div>{total}</div>
+              <div className="font-bold">SubTotal </div> <div>{total}</div>
             </div>
             <div className="flex justify-between w-1/2 md:w-1/4 p-2 text-lg mr-10">
-              <div className="font-bold">Advance </div>  <div>{advance}</div>
+              <div className="font-bold">Advance </div> <div>{advance}</div>
             </div>
+            {discount?.length > 0 && (
+              <div className="flex justify-between w-1/2 md:w-1/4 p-2 text-lg mr-10">
+                <div className="font-bold">Discount </div> <div>{discount}</div>
+              </div>
+            )}
             <div className="flex justify-between border w-1/2 p-2 md:w-1/4 text-lg mr-10">
-              <div className="font-bold">Total </div> 
-              <div>{total - advance}</div>
+              <div className="font-bold">Total </div>
+              {discount?.length > 0 ? (
+                <div>{total - advance - discount}</div>
+              ) : (
+                <div>{total - advance}</div>
+              )}
             </div>
           </div>
         </>
